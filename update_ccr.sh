@@ -1,15 +1,15 @@
 #!/bin/bash
-#Update script for ".o" on BIND9/Ubuntu 18.04
+#Update script for ".ccr" on BIND9/Ubuntu 18.04
 
 #Variables
-TLD='o'
-NS='ns11.opennic.glue.'
-EMAIL='jonah.opennic.org.'
+TLD='ccr'
+NS='ns1.foxnic.rfx.fi.'
+EMAIL='r3df0x.r3df0x.net.'
 CHECKZONE=/usr/sbin/named-checkzone
-TMP_DEST='/tmp/db.o'
-WORK_DIR='/opt/tld/o/'
-FILE_NAME='db.o'
-OUTPUT_DIR='/etc/bind/zone/master/o/'
+TMP_DEST='/tmp/db.ccr'
+WORK_DIR='/opt/tld/ccr/'
+FILE_NAME='db.ccr'
+OUTPUT_DIR='/etc/bind/tld/o/'
 FILES=${WORK_DIR}zone/*
 
 cd $WORK_DIR
@@ -28,11 +28,8 @@ git reset --hard origin/master > /dev/null
 
 # ADD NAMESERVERS!
 { echo "; TLD information"
-  echo "		IN	NS	ns11.opennic.glue."
-  echo "		IN	NS	ns9.opennic.glue."
-  echo "		IN	NS	ns2.opennic.glue."
-  echo "		IN	NS	ns6.opennic.glue."
-  echo "		IN	NS	ns8.opennic.glue."
+  echo "		IN	NS	ns1.foxnic.rfx.fi."
+  echo "		IN	NS	ns2.foxnic.rfx.fi."
   echo ";"
   echo "; Additional zones"
   echo ";"
@@ -46,9 +43,9 @@ do
 
   TEST=$($CHECKZONE $TLD "$TMP_DEST" | tail -n 1)
   if [ "$TEST" != "OK" ]; then
-    echo "Failed to add ${f}.o to the main zone!"
+    echo "Failed to add ${f}.ccr to the main zone!"
   else
-    echo "Processed ${f}.o Successfully"
+    echo "Processed ${f}.ccr Successfully"
     echo "; `git log --oneline -- $f | tail -n 1`" >> $FILE_NAME
     cat $f >> $FILE_NAME
   fi

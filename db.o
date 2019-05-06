@@ -1,4 +1,4 @@
-; BIND zone file for o
+; BIND zone file for ccr
 
-$ORIGIN o.
+$ORIGIN ccr.
 $TTL 2h       ; 2 hours

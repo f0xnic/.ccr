@@ -9,7 +9,7 @@ CHECKZONE=/usr/sbin/named-checkzone
 TMP_DEST='/tmp/db.ccr'
 WORK_DIR='/opt/tld/ccr/'
 FILE_NAME='db.ccr'
-OUTPUT_DIR='/etc/bind/tld/o/'
+OUTPUT_DIR='/etc/bind/tld/'
 FILES=${WORK_DIR}zone/*
 
 cd $WORK_DIR

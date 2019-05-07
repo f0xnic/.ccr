@@ -7,10 +7,10 @@ NS='ns1.foxnic.rfx.fi.'
 EMAIL='r3df0x.r3df0x.net.'
 CHECKZONE=/usr/sbin/named-checkzone
 TMP_DEST='/tmp/db.ccr'
-WORK_DIR='/opt/tld/ccr/'
+WORK_DIR='/root/registrar/ccr/'
 FILE_NAME='db.ccr'
 OUTPUT_DIR='/etc/bind/tld/'
-FILES=${WORK_DIR}zone/*
+FILES=${WORK_DIR}ccr/*
 
 cd $WORK_DIR
 git fetch origin master > /dev/null
